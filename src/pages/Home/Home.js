@@ -14,12 +14,15 @@ class Home extends Component {
     super();
 
     this.getCategories = this.getCategories.bind(this);
+    this.getItemsCategories = this.getItemsCategories.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       categories: [],
       products: [],
       search: '',
+      items: [],
     };
   }
 
@@ -27,16 +30,28 @@ class Home extends Component {
     this.getCategories();
   }
 
+  handleSearch = ({ target }) => {
+    const { value } = target;
+    this.setState({
+      search: value,
+    });
+  };
+
+  handleChange({ target }) {
+    const { id, value } = target;
+    this.getItemsCategories(id, value);
+  }
+
   async getCategories() {
     const categories = await api.getCategories();
     this.setState({ categories: [...categories] });
   }
 
-  handleSearch = (event) => {
-    this.setState({
-      search: event.target.value,
-    });
-  };
+  async getItemsCategories(categoryid, query) {
+    const response = await api.getProductsFromCategoryAndQuery(categoryid, query);
+    const { results } = response;
+    this.setState({ items: [...results] });
+  }
 
   handleClick = (event) => {
     event.preventDefault();
@@ -47,7 +62,7 @@ class Home extends Component {
   };
 
   render() {
-    const { categories, search, products } = this.state;
+    const { categories, search, products, items } = this.state;
     return (
       <Container>
         <Header>
@@ -61,22 +76,14 @@ class Home extends Component {
           </Link>
         </Header>
         <Main>
-          <CategoryList categories={ categories } />
+          <CategoryList categories={ categories } onChange={ this.handleChange } />
           <div className="list-product">
-            {products.map((product) => (
-              <div key={ product.id } data-testid="product">
-                <Card
-                  image={ product.thumbnail }
-                  price={ product.price }
-                  title={ product.title }
-                />
-              </div>
-            ))}
+            <Card products={ products } />
+            <span data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </span>
+            <Card products={ items } />
           </div>
-
-          <span data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </span>
         </Main>
       </Container>
     );
