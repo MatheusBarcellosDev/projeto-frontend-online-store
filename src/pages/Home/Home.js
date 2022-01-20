@@ -22,6 +22,7 @@ class Home extends Component {
       categories: [],
       products: [],
       search: '',
+      idProduct: '',
       items: [],
     };
   }
@@ -40,6 +41,7 @@ class Home extends Component {
   handleChange({ target }) {
     const { id, value } = target;
     this.getItemsCategories(id, value);
+    this.setState({ idProduct: id });
   }
 
   async getCategories() {
@@ -62,7 +64,7 @@ class Home extends Component {
   };
 
   render() {
-    const { categories, search, products, items } = this.state;
+    const { categories, search, products, items, idProduct } = this.state;
     return (
       <Container>
         <Header>
@@ -78,7 +80,7 @@ class Home extends Component {
         <Main>
           <CategoryList categories={ categories } onChange={ this.handleChange } />
           <div className="list-product">
-            <Card products={ products } />
+            <Card products={ products } id={ idProduct } />
             <span data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
             </span>
