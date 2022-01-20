@@ -25,12 +25,11 @@ class Home extends Component {
       items: [],
     };
   }
-  
+
   componentDidMount() {
     this.getCategories();
   }
-  
-  
+
   handleSearch = ({ target }) => {
     const { value } = target;
     this.setState({
@@ -79,29 +78,11 @@ class Home extends Component {
         <Main>
           <CategoryList categories={ categories } onChange={ this.handleChange } />
           <div className="list-product">
-            {products.map((product) => (
-              <div key={ product.id } data-testid="product">
-                <Card
-                  image={ product.thumbnail }
-                  price={ product.price }
-                  title={ product.title }
-                />
-              </div>
-            ))}
-          </div>
-          <span data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </span>
-          <div>
-            {items.map(({ title, thumbnail, price, id }) => (
-              <div key={ id } data-testid="product">
-                <Card
-                  image={ thumbnail }
-                  price={ price }
-                  title={ title }
-                />
-              </div>
-            ))}
+            <Card products={ products } />
+            <span data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </span>
+            <Card products={ items } />
           </div>
         </Main>
       </Container>
