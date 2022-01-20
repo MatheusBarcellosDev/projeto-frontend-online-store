@@ -26,16 +26,6 @@ class Card extends Component {
   }
 }
 
-/* {products.map((product) => (
-  <div key={ product.id } data-testid="product">
-    <Card
-      image={ product.thumbnail }
-      price={ product.price }
-      title={ product.title }
-    />
-  </div>
-))} */
-
 Card.propTypes = {
   products: PropTypes.arrayOf,
 }.isRequired;
