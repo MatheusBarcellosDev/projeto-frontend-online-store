@@ -3,12 +3,12 @@ import styled from 'styled-components';
 const Container = styled.div`
 
     padding:0;
-    margin:0;
+    margin:0 auto;
     box-sizing:border-box;
 
 
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
 
     .container-content {
         width: 100%;
