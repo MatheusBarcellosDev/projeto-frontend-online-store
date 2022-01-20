@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
+import Container from './styled';
 
 class CategoryList extends Component {
   render() {
     const { categories } = this.props;
     return (
-      <>
+      <Container>
         {categories.map((category) => (
           <div key={ category.id }>
             <label
@@ -21,7 +22,7 @@ class CategoryList extends Component {
             </label>
           </div>
         ))}
-      </>
+      </Container>
     );
   }
 }
