@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Container from './styled';
 
 class Card extends Component {
@@ -19,6 +20,13 @@ class Card extends Component {
             <div className="card-price">
               <p>{`R$ ${price}`}</p>
             </div>
+            <Link
+              data-testid="product-detail-link"
+              to={ `/MoreDetails/${title}` }
+            >
+              Mais Detalhe
+
+            </Link>
           </section>
         ))}
       </Container>
