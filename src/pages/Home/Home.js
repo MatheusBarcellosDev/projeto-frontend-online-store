@@ -22,7 +22,6 @@ class Home extends Component {
       categories: [],
       products: [],
       search: '',
-      items: [],
     };
   }
 
@@ -50,7 +49,8 @@ class Home extends Component {
   async getItemsCategories(categoryid, query) {
     const response = await api.getProductsFromCategoryAndQuery(categoryid, query);
     const { results } = response;
-    this.setState({ items: [...results], products: [] });
+
+    this.setState({ products: [...results] });
   }
 
   handleClick = (event) => {
@@ -62,7 +62,7 @@ class Home extends Component {
   };
 
   render() {
-    const { categories, search, products, items } = this.state;
+    const { categories, search, products } = this.state;
     return (
       <Container>
         <Header>

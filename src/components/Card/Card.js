@@ -19,14 +19,13 @@ class Card extends Component {
             </div>
             <div className="card-price">
               <p>{`R$ ${price}`}</p>
-              <Link
-                data-testid="product-detail-link"
-                to={ `/MoreDetails/${title}` }
-              >
-                Mais Detalhe
-
-              </Link>
             </div>
+            <Link
+              data-testid="product-detail-link"
+              to={ `/MoreDetails/${id}` }
+            >
+              Mais Detalhe
+            </Link>
           </section>
         ))}
       </Container>
