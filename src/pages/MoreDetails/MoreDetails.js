@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import getProductsFromId from '../../services/productId';
 
 class MoreDetails extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: '',
-    };
-  }
-
   componentDidMount() {
     this.getProduct();
   }
 
-  getProduct() {
-    const { match: { params: { title } } } = this.props;
-    this.setState({ title });
+  async getProduct() {
+    const { match: { params: { id } } } = this.props;
+    console.log('id', id);
+    const productId = await getProductsFromId(id);
+    console.log(productId);
   }
 
   render() {
-    const { title } = this.state;
     return (
       <>
-        <h1 data-testid="product-detail-name">{title}</h1>
+        <h1 data-testid="product-detail-name">detalhes</h1>
         <Link to="/">Voltar</Link>
       </>
     );
@@ -33,7 +28,7 @@ class MoreDetails extends Component {
 MoreDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };

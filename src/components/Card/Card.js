@@ -20,7 +20,7 @@ class Card extends Component {
 
     return (
       <Container className="card">
-        {products.map(({ thumbnail, price, title, id }, i) => (
+        {products.map(({ thumbnail, price, title, id }) => (
           <section key={ id } data-testid="product">
             <div className="card-image">
               <img src={ thumbnail } alt={ title } />
@@ -33,10 +33,7 @@ class Card extends Component {
             </div>
             <Link
               data-testid="product-detail-link"
-              to={ `/MoreDetails/${title}` }
-              onClick={ () => {
-                this.handleClick(i);
-              } }
+              to={ `/MoreDetails/${id}` }
             >
               Mais Detalhe
             </Link>
