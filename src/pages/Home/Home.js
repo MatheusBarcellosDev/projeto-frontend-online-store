@@ -22,7 +22,6 @@ class Home extends Component {
       categories: [],
       products: [],
       search: '',
-      items: [],
     };
   }
 
@@ -50,7 +49,7 @@ class Home extends Component {
   async getItemsCategories(categoryid, query) {
     const response = await api.getProductsFromCategoryAndQuery(categoryid, query);
     const { results } = response;
-    this.setState({ items: [...results] });
+    this.setState({ products: [...results] });
   }
 
   handleClick = (event) => {
@@ -62,7 +61,7 @@ class Home extends Component {
   };
 
   render() {
-    const { categories, search, products, items } = this.state;
+    const { categories, search, products } = this.state;
     return (
       <Container>
         <Header>
@@ -82,7 +81,6 @@ class Home extends Component {
             <span data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
             </span>
-            <Card products={ items } />
           </div>
         </Main>
       </Container>

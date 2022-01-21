@@ -22,10 +22,9 @@ class Card extends Component {
             </div>
             <Link
               data-testid="product-detail-link"
-              to={ `/MoreDetails/${title}` }
+              to={ `/MoreDetails/${id}` }
             >
               Mais Detalhe
-
             </Link>
           </section>
         ))}
