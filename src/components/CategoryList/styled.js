@@ -8,7 +8,9 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    width: 35%;
+    border-right: 1px solid #ccc;
+
+    width: 25%;
     min-width: 200px;
     font-size: 14px;
 

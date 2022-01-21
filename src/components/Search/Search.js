@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { BiSearch } from 'react-icons/bi';
+import Container from './styled';
 
 class Search extends Component {
   render() {
     const { searchInput, handleSearch, handleClick } = this.props;
     return (
-      <form>
-        <label htmlFor="input-search">
-          <input
-            data-testid="query-input"
-            id="input-search"
-            type="text"
-            value={ searchInput }
-            onChange={ handleSearch }
-          />
-        </label>
-        <button
-          data-testid="query-button"
-          type="submit"
-          onClick={ handleClick }
-        >
-          Pesquisar
+      <Container>
+        <form>
+          <div className="input-group">
+            <input
+              data-testid="query-input"
+              id="input-search"
+              type="text"
+              value={ searchInput }
+              onChange={ handleSearch }
+            />
 
-        </button>
-      </form>
+            <button
+              data-testid="query-button"
+              type="submit"
+              onClick={ handleClick }
+            >
+              <BiSearch />
+            </button>
+
+          </div>
+
+        </form>
+      </Container>
     );
   }
 }

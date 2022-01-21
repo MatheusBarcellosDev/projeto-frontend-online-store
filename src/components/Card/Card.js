@@ -10,7 +10,7 @@ class Card extends Component {
     return (
       <Container className="card">
         {products.map(({ thumbnail, price, title, id }) => (
-          <section key={ id } data-testid="product">
+          <section className="card" key={ id } data-testid="product">
             <div className="card-image">
               <img src={ thumbnail } alt={ title } />
             </div>

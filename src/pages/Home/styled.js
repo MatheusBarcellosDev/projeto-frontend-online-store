@@ -8,28 +8,9 @@ const Container = styled.div`
 
 
     width: 100%;
-    max-width: 1300px;
 
-    .container-content {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        padding: 20px;
-
-
-        input {
-            width: 300px;
-            padding: 5px;
-        }
-
-        span {
-            padding: 10px;
-        }
-        
+    .list-product{
+       width: 100%;
     }
 
 `;

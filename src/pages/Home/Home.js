@@ -49,6 +49,7 @@ class Home extends Component {
   async getItemsCategories(categoryid, query) {
     const response = await api.getProductsFromCategoryAndQuery(categoryid, query);
     const { results } = response;
+
     this.setState({ products: [...results] });
   }
 
@@ -77,7 +78,11 @@ class Home extends Component {
         <Main>
           <CategoryList categories={ categories } onChange={ this.handleChange } />
           <div className="list-product">
-            <Card products={ products } />
+            { products.length > 0 ? (
+              <Card products={ products } />
+            ) : (
+              <Card products={ items } />
+            )}
             <span data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
             </span>
