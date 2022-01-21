@@ -5,7 +5,6 @@ import Header from '../../components/Header/Header';
 import getProductsFromId from '../../services/productId';
 import ProducDetailsCard from '../../components/ProductDetailsCard';
 
-
 class MoreDetails extends Component {
   constructor() {
     super();
