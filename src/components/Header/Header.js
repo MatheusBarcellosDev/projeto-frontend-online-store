@@ -7,7 +7,7 @@ class Header extends Component {
     const { children } = this.props;
     return (
       <Container className="header">
-        <h1>Online Store</h1>
+        <h1 className="title">Online Store</h1>
         { children }
       </Container>
 

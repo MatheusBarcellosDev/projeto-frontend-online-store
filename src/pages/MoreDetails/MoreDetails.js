@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Header from '../../components/Header/Header';
 
 class MoreDetails extends Component {
   constructor() {
@@ -23,8 +24,10 @@ class MoreDetails extends Component {
     const { title } = this.state;
     return (
       <>
+        <Header>
+          <Link to="/">Voltar</Link>
+        </Header>
         <h1 data-testid="product-detail-name">{title}</h1>
-        <Link to="/">Voltar</Link>
       </>
     );
   }
