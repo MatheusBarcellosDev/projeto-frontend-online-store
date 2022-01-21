@@ -28,7 +28,6 @@ class MoreDetails extends Component {
     console.log(productData);
     return (
       <>
-
         <Header>
           <Link to="/">Voltar</Link>
         </Header>
