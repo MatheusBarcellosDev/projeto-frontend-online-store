@@ -32,8 +32,6 @@ class MoreDetails extends Component {
         <Header>
           <Link to="/">Voltar</Link>
         </Header>
-        <h1 data-testid="product-detail-name">{title}</h1>
-
         <ProducDetailsCard product={ productData } />
         <Link to="/">Voltar</Link>
 

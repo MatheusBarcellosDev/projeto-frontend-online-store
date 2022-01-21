@@ -78,11 +78,7 @@ class Home extends Component {
         <Main>
           <CategoryList categories={ categories } onChange={ this.handleChange } />
           <div className="list-product">
-            { products.length > 0 ? (
-              <Card products={ products } />
-            ) : (
-              <Card products={ items } />
-            )}
+            <Card products={ products } />
             <span data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
             </span>
