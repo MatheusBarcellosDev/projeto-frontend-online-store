@@ -24,7 +24,7 @@ class MoreDetails extends Component {
 
   render() {
     const { productData } = this.state;
-    // console.log(productData);
+    console.log(productData);
     return (
       <>
         <ProducDetailsCard product={ productData } />

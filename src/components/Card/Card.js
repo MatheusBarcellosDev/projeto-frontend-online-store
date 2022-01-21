@@ -4,17 +4,6 @@ import { Link } from 'react-router-dom';
 import Container from './styled';
 
 class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    // const { products } = this.props;
-  }
-
-  handleClick(index) {
-    const { products } = this.props;
-    console.log(products[index]);
-  }
-
   render() {
     const { products } = this.props;
 
