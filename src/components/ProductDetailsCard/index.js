@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 class ProducDetailsCard extends Component {
   render() {
-    const { product, testIdName } = this.props;
+    const { product } = this.props;
     const { title, price, attributes } = product;
     return (
       <div>
@@ -14,7 +14,7 @@ class ProducDetailsCard extends Component {
             {(attributes !== undefined && attributes.length !== 0)
               && attributes.map((attribute) => (
                 <div key={ attribute.id }>
-                  <span data-testid={ testIdName }>
+                  <span>
                     {`${attribute.name}: ${attribute.value_name} `}
                   </span>
                 </div>

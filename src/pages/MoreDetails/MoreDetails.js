@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header/Header';
-import getProductsFromId from '../../services/productId';
+import getProductFromId from '../../services/productId';
 import ProducDetailsCard from '../../components/ProductDetailsCard';
 import Button from '../../components/Button';
 
@@ -20,7 +20,7 @@ class MoreDetails extends Component {
 
   async getProduct() {
     const { match: { params: { id } } } = this.props;
-    const productData = await getProductsFromId(id);
+    const productData = await getProductFromId(id);
     this.setState({ productData: { ...productData } });
   }
 
@@ -30,11 +30,13 @@ class MoreDetails extends Component {
       <>
 
         <Header>
+          <Link data-testid="shopping-cart-button" to="/cart">
+            Carrinho
+          </Link>
           <Link to="/">Voltar</Link>
         </Header>
         <ProducDetailsCard
           product={ productData }
-          testIdName="shopping-cart-product-name"
         />
         <Button product={ productData } dataTestid="product-detail-add-to-cart" />
         <Link to="/">Voltar</Link>
