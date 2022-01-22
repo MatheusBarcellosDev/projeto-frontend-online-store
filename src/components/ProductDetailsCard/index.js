@@ -4,30 +4,25 @@ import Proptypes from 'prop-types';
 class ProducDetailsCard extends Component {
   render() {
     const { product } = this.props;
-    const { title, price } = product;
-    const { attributes } = product;
-    console.log('attributes', attributes);
+    const { title, price, attributes } = product;
     return (
       <div>
-        <span data-testid="product-detail-name">{title}</span>
+        <span data-testid="product-detail-name">{`Titulo do produto: ${title}`}</span>
         <div>
-          {(attributes !== undefined && attributes.length !== 0)
-            && attributes.map((attribute) => (
-              <>
-                <span
-                  key={ attribute.id }
-                >
-                  {attribute.name}
-                </span>
-                <span
-                  key={ attribute.id }
-                >
-                  {attribute.value_name}
-                </span>
-              </>
-            ))}
+          <br />
+          <div>
+            {(attributes !== undefined && attributes.length !== 0)
+              && attributes.map((attribute) => (
+                <div key={ attribute.id }>
+                  <span>
+                    {`${attribute.name}: ${attribute.value_name} `}
+                  </span>
+                </div>
+              ))}
+          </div>
         </div>
-        <span>{price}</span>
+        <br />
+        <span>{`Preço: ${price}`}</span>
       </div>
     );
   }
