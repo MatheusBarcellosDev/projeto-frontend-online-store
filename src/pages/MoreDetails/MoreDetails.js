@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../../components/Header/Header';
 import getProductsFromId from '../../services/productId';
 import ProducDetailsCard from '../../components/ProductDetailsCard';
+import Button from '../../components/Button';
 
 class MoreDetails extends Component {
   constructor() {
@@ -25,14 +26,17 @@ class MoreDetails extends Component {
 
   render() {
     const { productData } = this.state;
-    console.log(productData);
     return (
       <>
 
         <Header>
           <Link to="/">Voltar</Link>
         </Header>
-        <ProducDetailsCard product={ productData } />
+        <ProducDetailsCard
+          product={ productData }
+          testIdName="shopping-cart-product-name"
+        />
+        <Button product={ productData } dataTestid="product-detail-add-to-cart" />
         <Link to="/">Voltar</Link>
 
       </>

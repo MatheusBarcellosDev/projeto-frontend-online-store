@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Container from './styled';
+import Button from '../Button';
 
 class Card extends Component {
   render() {
@@ -9,23 +10,24 @@ class Card extends Component {
 
     return (
       <Container className="card">
-        {products.map(({ thumbnail, price, title, id }) => (
-          <section className="card" key={ id } data-testid="product">
+        {products.map((product) => (
+          <section className="card" key={ product.id } data-testid="product">
             <div className="card-image">
-              <img src={ thumbnail } alt={ title } />
+              <img src={ product.thumbnail } alt={ product.title } />
             </div>
             <div className="card-title">
-              <p>{title}</p>
+              <p>{product.title}</p>
             </div>
             <div className="card-price">
-              <p>{`R$ ${price}`}</p>
+              <p>{`R$ ${product.price}`}</p>
             </div>
             <Link
               data-testid="product-detail-link"
-              to={ `/MoreDetails/${id}` }
+              to={ `/MoreDetails/${product.id}` }
             >
               Mais Detalhe
             </Link>
+            <Button product={ product } dataTestid="product-add-to-cart" />
           </section>
         ))}
       </Container>
