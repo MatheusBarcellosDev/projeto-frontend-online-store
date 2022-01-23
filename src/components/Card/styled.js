@@ -6,7 +6,7 @@ const Container = styled.div`
     box-sizing: border-box;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
 
 
@@ -20,10 +20,11 @@ const Container = styled.div`
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
         .card-image img{
-            width: 100%;
+            width: 200px;
         }
 
         .card-title{
+            width: 100%;
             height: 55px;
             overflow: hidden;
         }
