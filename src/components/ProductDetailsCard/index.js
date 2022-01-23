@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
+import Container from './styled';
 
 class ProducDetailsCard extends Component {
   render() {
     const { product } = this.props;
     const { title, price, attributes } = product;
     return (
-      <div>
-        <span data-testid="product-detail-name">{`Titulo do produto: ${title}`}</span>
-        <div>
-          <br />
+      <Container>
+        <div className="productName">
+          <h1 data-testid="product-detail-name">{title}</h1>
+          <span>{`R$: ${price}`}</span>
+        </div>
+        <div className="containerProductDetails">
+          <div className="imgProduct">
+            <img src={ product.thumbnail } alt={ product.title } />
+          </div>
           <div>
             {(attributes !== undefined && attributes.length !== 0)
               && attributes.map((attribute) => (
@@ -22,8 +28,7 @@ class ProducDetailsCard extends Component {
           </div>
         </div>
         <br />
-        <span>{`Preço: ${price}`}</span>
-      </div>
+      </Container>
     );
   }
 }
