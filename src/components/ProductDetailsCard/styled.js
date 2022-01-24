@@ -2,31 +2,71 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
 
-    .productName {
+    max-width: 1200px;
+    margin: 0 auto;
+
+
+    .conteinerContent{
         display: flex;
-        align-items: center;
+        padding: 30px;
+        
+    }
+
+    .product {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+
 
         h1{
-            font-size: 16px;
+            font-size: 20px;
+            text-align: center;
         }
 
         span{
             font-size: 16px;
-            margin-left: 10px;
+            text-align: center;
+        }
+
+        .imgProduct{
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+
         }
     }
 
     .containerProductDetails{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        width: 65%;
+        padding: 15px 85px;
 
-        img{
-            width: 300px;
+        h2{
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 35px;
         }
+    }
+
+    .containerDetailsItem{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+
+        .detailsItem{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+
+            span{
+                font-size: 12px;
+                word-wrap: break-word;
+            }
+        }
+
     }
 
 `;

@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import getProductFromId from '../../services/productId';
 import ProducDetailsCard from '../../components/ProductDetailsCard';
 import Button from '../../components/Button';
+import Forms from '../../components/Forms/Forms';
 
 class MoreDetails extends Component {
   constructor() {
@@ -37,10 +38,10 @@ class MoreDetails extends Component {
         </Header>
         <ProducDetailsCard
           product={ productData }
-        />
-        <Button product={ productData } dataTestid="product-detail-add-to-cart" />
-        <Link to="/">Voltar</Link>
-
+        >
+          <Button product={ productData } dataTestid="product-detail-add-to-cart" />
+          <Forms product={ productData.id } />
+        </ProducDetailsCard>
       </>
     );
   }

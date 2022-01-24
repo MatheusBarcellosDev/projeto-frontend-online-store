@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
 import { addProduct } from '../../services/CartItems';
+import Container from './styled';
 
 class Button extends Component {
   constructor() {
     super();
+
     this.handleClickAddCart = this.handleClickAddCart.bind(this);
   }
 
@@ -16,7 +18,7 @@ class Button extends Component {
   render() {
     const { product, dataTestid } = this.props;
     return (
-      <section>
+      <Container>
         <button
           type="button"
           data-testid={ dataTestid }
@@ -24,7 +26,7 @@ class Button extends Component {
         >
           Adicionar ao carrinho
         </button>
-      </section>
+      </Container>
     );
   }
 }
