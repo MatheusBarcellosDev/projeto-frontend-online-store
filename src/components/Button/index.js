@@ -10,9 +10,8 @@ class Button extends Component {
     this.handleClickAddCart = this.handleClickAddCart.bind(this);
   }
 
-  handleClickAddCart(product, event) {
+  handleClickAddCart(product) {
     addProduct(product);
-    console.log(event.target);
   }
 
   render() {
