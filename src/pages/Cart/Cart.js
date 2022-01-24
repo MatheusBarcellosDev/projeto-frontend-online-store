@@ -63,7 +63,6 @@ class Cart extends React.Component {
 
   render() {
     const { itemsCart } = this.state;
-    console.log(itemsCart);
 
     return (
       <Container>
@@ -127,6 +126,7 @@ class Cart extends React.Component {
 
             </div>
           ))}
+        <Link data-testid="checkout-products" to="/checkout"> Finalizar Compra </Link>
       </Container>
     );
   }
